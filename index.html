@@ -79,18 +79,26 @@
     </div>
     
     <script>
-        const audio = document.getElementById('audio');
-        const playPauseBtn = document.getElementById('playPause');
-        const player = document.getElementById('player');
-        
-        playPauseBtn.addEventListener('click', () => {
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPause');
+    const player = document.getElementById('player');
+
+    audio.src = "https://drive.google.com/uc?export=download&id=1TTCP58XFDbKg4fPz2M9o9hyfHvnuwaFe";
+
+    playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
             audio.play().then(() => {
                 playPauseBtn.textContent = 'Pause';
                 player.classList.add('playing');
             }).catch(error => {
                 console.log("Playback failed", error);
             });
-        });
-    </script>
+        } else {
+            audio.pause();
+            playPauseBtn.textContent = 'Play';
+            player.classList.remove('playing');
+        }
+    });
+</script>
 </body>
 </html>
