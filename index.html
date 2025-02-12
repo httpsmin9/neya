@@ -69,8 +69,11 @@
         <button class="button" id="playPause">Play</button>
     </div>
     <audio id="
+
+
 <audio id="audio" controls>
-    <source src="https://drive.google.com/uc?export=download&id=1TTCP58XFDbKg4fPz2M9o9hyfHvnuwaFe" type="audio/mpeg"></audio>"></audio>
+    <source src=https://www.dropbox.com/scl/fi/nuj274iao8pqty50mzyww/Best-I-Ever-Had-Grey-Sky-Morning.mp3?rlkey=leqjyb1nf5yc2tvq26km4z82f&st=2gh53qes&dl=0" type="audio/mpeg">
+</audio>
     
     <div class="love-letter">
         <p>Neya,</p>
@@ -78,27 +81,19 @@
         <p> yosi naman tayo minsan :( -c</p>
     </div>
     
-    <script>
-    const audio = document.getElementById('audio');
-    const playPauseBtn = document.getElementById('playPause');
-    const player = document.getElementById('player');
-
-    audio.src = "https://drive.google.com/uc?export=download&id=1TTCP58XFDbKg4fPz2M9o9hyfHvnuwaFe";
-
-    playPauseBtn.addEventListener('click', () => {
-        if (audio.paused) {
+   <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('playPause');
+        const player = document.getElementById('player');
+        
+        playPauseBtn.addEventListener('click', () => {
             audio.play().then(() => {
                 playPauseBtn.textContent = 'Pause';
                 player.classList.add('playing');
             }).catch(error => {
                 console.log("Playback failed", error);
             });
-        } else {
-            audio.pause();
-            playPauseBtn.textContent = 'Play';
-            player.classList.remove('playing');
-        }
-    });
-</script>
+        });
+    </script>
 </body>
 </html>
