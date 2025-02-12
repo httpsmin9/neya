@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bembang day</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffebf0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .player {
+            position: relative;
+            width: 220px;
+            margin: 50px auto;
+        }
+        .vinyl {
+            width: 200px;
+            height: 200px;
+            background: url('vinyl.jpg') no-repeat center;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+            animation: spin 3s linear infinite;
+            animation-play-state: paused;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .playing .vinyl {
+            animation-play-state: running;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+        }
+        .button:hover {
+            background-color: #e63950;
+        }
+        .love-letter {
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>sana wala ka pang ka-date sa friday</h1>
+    <div class="player" id="player">
+        <div class="vinyl" id="vinyl"></div>
+        <button class="button" id="playPause">Play</button>
+    </div>
+    <audio id="audio" src="Best I Ever Had (Grey Sky Morning).mp3"></audio>
+    
+    <div class="love-letter">
+        <p>Neya,</p>
+        <p>sabi nga sa kanta, youre just the best i ever had. hindi naman masakit, parang ano lang, yung feeling na di ako makahipak. anyways, glad to see you doing fine. sabihan sana kitang unfair pero mas malaki pala kasalanan ko. hehe. miss na miss na kita >:( ang lungkot ng buhay ko lately..</p>
+        <p> yosi naman tayo minsan :( -c</p>
+    </div>
+    
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('playPause');
+        const player = document.getElementById('player');
+        
+        playPauseBtn.addEventListener('click', () => {
+            audio.play().then(() => {
+                playPauseBtn.textContent = 'Pause';
+                player.classList.add('playing');
+            }).catch(error => {
+                console.log("Playback failed", error);
+            });
+        });
+    </script>
+</body>
+</html>
