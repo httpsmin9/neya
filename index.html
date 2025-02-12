@@ -68,28 +68,35 @@
         <div class="vinyl" id="vinyl"></div>
         <button class="button" id="playPause">Play</button>
     </div>
-    <audio id="audio" controls>
-    <source src="https://raw.githubusercontent.com/httpsmin9/neya/main/Best_I_Ever_Had_Grey_Sky_Morning.mp3" type="audio/mpeg">
-</audio>>
-    
+
+    <audio id="audio">
+        <source src="https://cdn.jsdelivr.net/gh/httpsmin9/neya@main/Best_I_Ever_Had_Grey_Sky_Morning.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="love-letter">
         <p>Neya,</p>
-        <p>sabi nga sa kanta, youre just the best i ever had. hindi naman masakit, parang ano lang, yung feeling na di ako makahipak. anyways, glad to see you doing fine. sabihan sana kitang unfair pero mas malaki pala kasalanan ko. hehe. miss na miss na kita >:( ang lungkot ng buhay ko lately..</p>
-        <p> yosi naman tayo minsan :( -c</p>
+        <p>sabi nga sa kanta, you're just the best I ever had. Hindi naman masakit, parang ano lang, yung feeling na di ako makahipak. Anyways, glad to see you doing fine. Sabihan sana kitang unfair pero mas malaki pala kasalanan ko. Hehe. Miss na miss na kita >:( Ang lungkot ng buhay ko lately..</p>
+        <p>Yosi naman tayo minsan :( -c</p>
     </div>
-    
+
     <script>
         const audio = document.getElementById('audio');
         const playPauseBtn = document.getElementById('playPause');
         const player = document.getElementById('player');
-        
+
         playPauseBtn.addEventListener('click', () => {
-            audio.play().then(() => {
-                playPauseBtn.textContent = 'Pause';
-                player.classList.add('playing');
-            }).catch(error => {
-                console.log("Playback failed", error);
-            });
+            if (audio.paused) {
+                audio.play().then(() => {
+                    playPauseBtn.textContent = 'Pause';
+                    player.classList.add('playing');
+                }).catch(error => {
+                    console.log("Playback failed", error);
+                });
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = 'Play';
+                player.classList.remove('playing');
+            }
         });
     </script>
 </body>
